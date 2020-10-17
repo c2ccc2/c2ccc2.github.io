@@ -16,8 +16,8 @@ deploy:
   local-dir: public
   github-token: $access_token
   keep-history: true
-  on: master
-
+  on: 
+    branch: master
 
 
 
