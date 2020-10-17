@@ -10,18 +10,19 @@ branches:
     - gh-pages # build master branch only
 script:
   - hexo generate
-deploy:
-  provider: pages
-  skip-cleanup: true
-  local-dir: public
-  github-token: $access_token
-  keep-history: true
-  on: 
-    branch: master
+
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "c2ccc2"
+  - git config user.email "c2ccc2@qq.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://$access_token@${GH_REF}" master:master
 
 
 
-
-
-
-
+env:
+ global:
+   - GH_REF: github.com/c2ccc2/c2ccc2.github.io.git
