@@ -13,9 +13,15 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
+  local-dir: public
   github-token: $access_token
   keep-history: true
-  on:
-    branch: master
+  on: master
 
-  local-dir: public
+
+
+
+
+
+
+
