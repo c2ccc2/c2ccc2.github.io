@@ -2,10 +2,12 @@ udo: false
 language: node_js
 node_js:
   - 12
-cache: npm
+cache: 
+  directories:
+     - node_modules
 branches:
   only:
-    - master # build master branch only
+    - gh-pages # build master branch only
 script:
   - hexo generate
 deploy:
@@ -14,5 +16,6 @@ deploy:
   github-token: $access_token
   keep-history: true
   on:
-    branch: gh-pages
+    branch: master
+
   local-dir: public
