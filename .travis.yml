@@ -1,0 +1,18 @@
+udo: false
+language: node_js
+node_js:
+  - 12
+cache: npm
+branches:
+  only:
+    - master # build master branch only
+script:
+  - hexo generate
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $access_token
+  keep-history: true
+  on:
+    branch: gh-pages
+  local-dir: public
